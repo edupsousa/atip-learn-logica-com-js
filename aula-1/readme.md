@@ -257,3 +257,9 @@ Futuramente iremos discutir esses tipos de dados com mais detalhes, porém, por 
 Dizemos que o JavaScript é uma linguagem de tipagem dinâmica, ou seja, as variáveis em JavaScript não possuem um tipo de dado fixo, e podem armazenar valores de qualquer tipo. Isso significa que uma variável pode armazenar um número em um momento e uma string em outro momento, sem a necessidade de declarar explicitamente o tipo da variável. Vimos isso em prática nos exemplos anteriores quando declaramos e inicializamos a variávem `mensagem` com uma string. Em momento nenhum precisamos informar explicitamente que a variável `mensagem` é do tipo string, o JavaScript inferiu isso a partir do valor que atribuímos à variável.
 
 A tipagem dinâmica traz flexibilidade e simplicidade para a linguagem, porém, também pode trazer confusão e erros se não utilizada corretamente. Por isso é importante que as variáveis sejam utilizadas de forma consistente, evitando que uma mesma variável armazene valores de tipos diferentes ao longo do código, o que torna o código confuso e mais propenso a bugs.
+
+### Conclusão
+
+Nessa aula aprendemos o que é programação e algoritmos, conhecemos a história e aplicações da linguagem JavaScript, preparamos o ambiente de desenvolvimento (VSCode e Node.js) e criamos alguns exemplos de aplicações simples com JavaScript. Aprendemos também sobre variáveis e tipos de dados em JavaScript, e vimos como utilizar variáveis para armazenar e reutilizar valores em nossos programas.
+
+Nas próximas aulas iremos aprofundar nossos conhecimentos em JavaScript, aprendendo mais sobre variáveis, operadores e estrutras de controle para criar programas mais complexos e interessantes. Até lá!
