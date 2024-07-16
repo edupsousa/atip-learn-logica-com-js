@@ -159,3 +159,144 @@ let resultado = numero + '5'; // '25'
 #### Outros Operadores e Precedência de Operadores
 
 A linguagem JavaScript possui diversos outros operadores que são utilizados para realizar diferentes tipos de operações. Além disso a linguagem possui regras de precedência que determinam a ordem em que os operadores são avaliados em uma expressão. Você pode encontrar uma lista completa de operadores e a ordem de precedência deles no site da [Mozilla Developer Network](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Expressions_and_operators).
+
+### Estruturas de Controle
+
+As estruturas de controle são utilizadas para controlar o fluxo de execução de um programa, permitindo que você tome decisões com base em condições específicas. Quando escrevemos um algoritmo ele é executado de forma linear, uma linha após a outra, porém, em muitos casos precisamos que o programa tome decisões com base em determinadas condições. Para isso utilizamos as estruturas de controle que permitem que você determine quais partes do seu código devem ou não ser executadas.
+
+#### Estrutura de Controle if (se)
+
+A estrutura de controle `if` é utilizada para executar um bloco de código **se** uma determinada condição for verdadeira. A sintaxe da estrutura de controle `if` é a seguinte:
+
+```javascript
+if (condição) {
+    // Bloco de código a ser executado se a condição for verdadeira
+}
+```
+
+A _condição_ é uma expressão lógica que pode ser avaliada como verdadeira ou falsa. Se a condição for verdadeira, o bloco de código dentro das chaves `{}` será executado, caso contrário, o bloco de código será ignorado.
+
+```javascript
+let idade = 18;
+
+if (idade >= 18) {
+    console.log('Você é maior de idade');
+}
+```
+
+Nesse exemplo a variável idade armazena o valor 18, e a condição `idade >= 18` verifica se a idade é maior ou igual a 18. Como essa condição é verdadeira (`idade` é igual a 18), a nossa condição é verdadeira e o bloco de código dentro das chaves `{}` é executado, exibindo a mensagem `'Você é maior de idade'` no console.
+
+#### Condições Verdadeiras e Falsas
+
+Em JavaScript, diferente de muitas outras linguagens, uma condição não precisa resultar no valor booleano `true` ou `false`, qualquer valor pode ser avaliado como verdadeiro ou falso. Valores que são avaliados como falsos são chamados de _falsy_ e valores que são avaliados como verdadeiros são chamados de _truthy_.
+
+Esse conceito é motivo de muitas confusões para quem está começando na linguagem JavaScript, por isso é importante entender quais valores são avaliados como verdadeiros e quais são avaliados como falsos, e sempre que possível utilizar condições que resultem em valores booleanos. Abaixo estão listados os valores que são avaliados como falsos em JavaScript:
+
+- `false`
+- `0`
+- `''` (string vazia)
+- `null`
+- `undefined`
+- `NaN` (Not a Number, valor resultante de operações matemáticas inválidas)
+
+#### Condições Compostas
+
+Além das condições simples como vimos no exemplo anterior, é possível criar condições compostas utilizando os operadores lógicos `&&` (E) e `||` (OU). Ou seja, uma condição composta é um conjunto de condições que precisam ser satisfeitas para que o bloco de código seja executado. O resultado da combinação de duas condições é determinado pelo operador lógico utilizado. Veja o exemplo abaixo:
+
+```javascript
+let idade = 18;
+let possuiCNH = true;
+
+if (idade >= 18 && possuiCNH) {
+    console.log('Você pode dirigir');
+}
+```
+
+Nesse exemplo, a condição `idade >= 18 && possuiCNH` verifica se a idade é maior ou igual a 18 **e** se a pessoa possui CNH. Se ambas as condições forem verdadeiras, o bloco de código dentro das chaves `{}` será executado, exibindo a mensagem `'Você pode dirigir'` no console. Perceba que não é necessário comparar a variável `possuiCNH` com `true`, pois o próprio valor da variável já é avaliado como verdadeiro.
+
+```javascript
+let hora = 14;
+let estaChovendo = true;
+
+if (hora >= 18 || estaChovendo) {
+  console.log('Ligue os faróis');
+}
+```
+
+Nesse exemplo, a condição `hora >= 18 || estaChovendo` verifica se a hora é maior ou igual a 18 **ou** se está chovendo. Se qualquer uma das condições for verdadeira, o bloco de código dentro das chaves `{}` será executado, exibindo a mensagem `'Ligue os faróis'` no console.
+
+#### Estrutura de Controle else (senão)
+
+A estrutura de controle `else` é utilizada para executar um bloco de código **se** a condição do `if` for falsa. Ou seja, a estrutura `else` sempre é utilizada em conjunto com a estrutura `if`, e é executada quando a condição do `if` é falsa. A sintaxe da estrutura de controle `else` é a seguinte:
+
+```javascript
+if (condição) {
+    // Bloco de código a ser executado se a condição for verdadeira
+} else {
+    // Bloco de código a ser executado se a condição for falsa
+}
+```
+
+```javascript
+let idade = 17;
+
+if (idade >= 18) {
+    console.log('Você é maior de idade');
+} else {
+    console.log('Você é menor de idade');
+}
+```
+
+Nesse exemplo, a variável idade armazena o valor 17, e a condição `idade >= 18` verifica se a idade é maior ou igual a 18. Como essa condição é falsa (`idade` é igual a 17), o bloco de código dentro das chaves `{}` do `else` é executado, exibindo a mensagem `'Você é menor de idade'` no console.
+
+#### Estrutura de Controle else if (senão se)
+
+A estrutura de controle `else if` é utilizada para executar diferentes blocos de código com base em diferentes condições exclusivas. A estrutura `else if` é utilizada entre as estruturas `if` e `else`, e é executada se a condição do `if` for falsa e a condição do `else if` for verdadeira. A sintaxe da estrutura de controle `else if` é a seguinte:
+
+```javascript
+if (condição1) {
+    // Bloco de código a ser executado se a condição1 for verdadeira
+} else if (condição2) {
+    // Bloco de código a ser executado se a condição2 for verdadeira
+} else {
+    // Bloco de código a ser executado se nenhuma das condições anteriores for verdadeira
+}
+```
+
+```javascript
+let idade = 21;
+
+if (idade >= 18) {
+    console.log('Você é maior de idade');
+} else if (idade >= 16) {
+    console.log('Você é adolescente');
+} else {
+    console.log('Você é criança');
+}
+```
+
+Nesse exemplo, a variável idade armazena o valor 21, e a condição `idade >= 18` verifica se a idade é maior ou igual a 18. Como essa condição é verdadeira, o bloco de código dentro das chaves `{}` do `if` é executado, exibindo a mensagem `'Você é maior de idade'` no console. Se a condição do `if` for falsa, a condição do `else if` é verificada, e se for verdadeira, o bloco de código dentro das chaves `{}` do `else if` é executado, exibindo a mensagem `'Você é adolescente'` no console. Se nenhuma das condições anteriores for verdadeira, o bloco de código dentro das chaves `{}` do `else` é executado, exibindo a mensagem `'Você é criança'` no console.
+
+**Pergunta: Se você trocar a ordem das condições `idade >= 16` e `idade >= 18`, o que aconteceria?**
+
+#### Estruturas de Controle Aninhadas
+
+As estruturas de controle `if`, `else if` e `else` podem ser aninhadas, ou seja, podemos utilizar uma estrutura de controle dentro de outra. Isso é útil quando precisamos verificar múltiplas condições de forma mais complexa. Veja o exemplo abaixo:
+
+```javascript
+let idade = 21;
+let possuiCNH = true;
+
+if (idade >= 18) {
+    if (possuiCNH) {
+        console.log('Você pode dirigir');
+    } else {
+        console.log('Você não pode dirigir');
+    }
+} else {
+    console.log('Você é menor de idade');
+}
+```
+
+Nesse exemplo, a variável idade armazena o valor 21 e a variável possuiCNH armazena o valor `true`. A primeira condição `idade >= 18` verifica se a idade é maior ou igual a 18, se essa condição for verdadeira, a estrutura de controle `if` aninhada é executada. Dentro dessa estrutura de controle aninhada, a condição `possuiCNH` verifica se a pessoa possui CNH, se essa condição for verdadeira, o bloco de código dentro das chaves `{}` é executado, exibindo a mensagem `'Você pode dirigir'` no console. Se a condição `possuiCNH` for falsa, o bloco de código dentro das chaves `{}` do `else` é executado, exibindo a mensagem `'Você não pode dirigir'` no console. Se a condição `idade >= 18` for falsa, o bloco de código dentro das chaves `{}` do `else` é executado, exibindo a mensagem `'Você é menor de idade'` no console.
+
