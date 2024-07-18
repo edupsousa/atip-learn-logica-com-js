@@ -300,3 +300,107 @@ if (idade >= 18) {
 
 Nesse exemplo, a variável idade armazena o valor 21 e a variável possuiCNH armazena o valor `true`. A primeira condição `idade >= 18` verifica se a idade é maior ou igual a 18, se essa condição for verdadeira, a estrutura de controle `if` aninhada é executada. Dentro dessa estrutura de controle aninhada, a condição `possuiCNH` verifica se a pessoa possui CNH, se essa condição for verdadeira, o bloco de código dentro das chaves `{}` é executado, exibindo a mensagem `'Você pode dirigir'` no console. Se a condição `possuiCNH` for falsa, o bloco de código dentro das chaves `{}` do `else` é executado, exibindo a mensagem `'Você não pode dirigir'` no console. Se a condição `idade >= 18` for falsa, o bloco de código dentro das chaves `{}` do `else` é executado, exibindo a mensagem `'Você é menor de idade'` no console.
 
+### Funções
+
+Imagine que você está desenvolvendo um programa que precisa calcular a média das 4 notas bimestrais de um aluno. Você provavelmente desenvolveria algo parecido com o código abaixo:
+
+```javascript
+let nota1 = 7;
+let nota2 = 8;
+let nota3 = 6;
+let nota4 = 9;
+
+let media = (nota1 + nota2 + nota3 + nota4) / 4;
+```
+
+Agora imagine que você precisa repetir esse mesmo processo para os 40 alunos de uma turma, ou quem sabe para centenas de alunos de uma escola. Você teria que repetir esse mesmo código várias vezes, o que rapidamente deixaria de ser prático, seu código ficaria muito extenso e difícil de manter. Quando um problema (ou uma parte do problema) se apresenta de forma repetitiva, em geral a melhor solução é criar uma função que resolva esse problema, e então poderemos utilizar essa função sempre que precisarmos resolver esse problema.
+
+Uma função é basicamente um bloco de código identificado por um nome, o qual pode ter suas próprias entradas e saídas. Assim como podemos utilizar o valor de uma variável em diferentes partes do código apenas referenciando-a pelo nome, também podemos chamar uma função em diferentes partes do código utilizando seu nome. A sintaxe para declarar uma função é a seguinte:
+
+```javascript
+function nomeDaFuncao(parametro1, parametro2, ...) {
+    // Bloco de código a ser executado
+    return valorDeRetorno;
+}
+```
+
+- `nomeDaFuncao`: É o nome da função, que deve ser único e significativo, ou seja, deve representar o que a função faz. Geralmente utilizamos verbos para nomear funções, como `calcularMedia`, `exibirMensagem`, `validarUsuario`, etc.
+- `parametro1, parametro2, ...`: São os parâmetros da função, que são valores que a função espera receber para realizar suas operações, ou seja, são as entradas da função. Os parâmetros são utilizados dentro da função da mesma forma que as variáveis. Uma função pode não ter nenhum parâmetro, ou pode ter quantos parâmetros forem necessários.
+- `return valorDeRetorno`: A instrução `return` é utilizada para retornar um valor da função para o local onde a função foi chamada. O `valorDeRetorno` é o valor que a função irá retornar, e pode ser qualquer tipo de dado, como um número, uma string, um objeto, um array, etc. Em JavaScript uma função pode pode não retornar nenhum valor, ou retornar apenas um valor.
+
+Vamos reescrever o código que calcula a média das notas dos alunos em uma função:
+
+```javascript
+function calcularMedia(nota1, nota2, nota3, nota4) {
+    let media = (nota1 + nota2 + nota3 + nota4) / 4;
+    return media;
+}
+```
+
+Nesse exemplo estamos declarando uma função chamada `calcularMedia` que recebe 4 parâmetros, que são as notas dos alunos. Dentro da função estamos calculando a média das notas e retornando esse valor. Para utilizar essa função, basta chamá-la passando os valores das notas como argumentos:
+
+```javascript
+let mediaAluno1 = calcularMedia(7, 8, 6, 9);
+console.log(mediaAluno1); // 7.5
+let mediaAluno2 = calcularMedia(5, 6, 7, 8);
+console.log(mediaAluno2); // 6.5
+```
+
+Nesse exemplo estamos chamando a função `calcularMedia` duas vezes, passando as notas dos alunos como argumentos. A função irá calcular a média das notas e retornar esse valor, que será armazenado nas variáveis `mediaAluno1` e `mediaAluno2`, e então exibimos esses valores no console. Quando a função é chamada, os parâmetros informados na chamada da função são atribuídos às variáveis dentro da função, essa atribuição é feita de acordo com a ordem dos parâmetros. Ou seja na primeira chamada da função `calcularMedia(7, 8, 6, 9)`, o valor `7` é atribuído à variável `nota1`, o valor `8` é atribuído à variável `nota2`, e assim por diante.
+
+A linha `return media;` é responsável por retornar o valor da variável `media` para o local onde a função foi chamada. Assim, quando a função é chamada e o cálculo da média é feito, o valor da média é retornado e armazenado na variável `mediaAluno1` ou `mediaAluno2`, que então pode ser utilizado em outras partes do código.
+
+Algumas funções não recebem parâmetros, e outras funções não retornam valores. Por exemplo, a função abaixo exibe uma mensagem no console, mas não recebe nenhum parâmetro e não retorna nenhum valor:
+
+```javascript
+function exibirMensagem() {
+    console.log('Olá, mundo!');
+}
+```
+
+Se tentarmos receber um valor dessa função, atribuindo-o à variável mensagem, o valor da variável será `undefined`, pois a função não retorna nenhum valor:
+
+```javascript
+let mensagem = exibirMensagem(); // Exibe 'Olá, mundo!' no console
+console.log(mensagem); // Exibe 'undefined' no console
+```
+
+O mesmo ocorre com uma função que espera receber um parâmetro, mas em sua chamada não é passado nenhum valor para esse parâmetro. Nesse caso se tentarmos utilizar o parâmetro no corpo da função, o valor será `undefined`:
+
+```javascript
+function exibirMensagem(nome) {
+    console.log('Olá, ' + nome + '!');
+}
+
+exibirMensagem(); // Exibe 'Olá, undefined!' no console
+```
+
+#### Escopo da Função
+
+Quando declaramos uma função, os parâmetros dessa função e as variáveis declaradas no corpo da função somente são acessíveis dentro do corpo dessa função, ou seja, elas possuem escopo local. Escopo é o contexto onde uma variável ou função é acessível. Se tentarmos acessar uma variável declarada dentro de uma função fora do corpo da função, o JavaScript irá retornar um erro, pois essa variável não é acessível fora do escopo da função.
+
+```javascript
+function exibirMensagem() {
+    let mensagem = 'Olá, mundo!';
+    console.log(mensagem);
+}
+
+exibirMensagem(); // Exibe 'Olá, mundo!' no console
+console.log(mensagem); // Erro: ReferenceError: mensagem is not defined
+```
+
+Nesse exemplo, a variável `mensagem` é declarada dentro da função `exibirMensagem`, e por isso ela só é acessível dentro do corpo da função. Quando tentamos acessar a variável `mensagem` fora do corpo da função, o JavaScript retorna um erro, pois essa variável não é acessível fora do escopo da função.
+
+#### Escopo Global
+
+Por outro lado, variáveis declaradas fora do corpo das funções são acessíveis em qualquer parte do código, ou seja, elas possuem escopo global e podem ser utilizadas tanto dentro quanto fora das funções. Variáveis declaradas fora do corpo das funções são chamadas de variáveis globais.
+
+```javascript
+let mensagem = 'Olá, mundo!';
+function exibirMensagem() {
+    console.log(mensagem);
+}
+
+exibirMensagem(); // Exibe 'Olá, mundo!' no console
+console.log(mensagem); // Exibe 'Olá, mundo!' no console
+```
