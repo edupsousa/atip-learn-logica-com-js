@@ -22,7 +22,95 @@ Uma linguagem de programação, assim como uma linguagem natural, possui um conj
 
 Enquanto na linguagem natural podemos nos expressar de diferentes formas, nas linguagens de programação temos um conjunto de regras mais rígidas que precisam ser seguidas para que o código seja interpretado corretamente pelo computador.
 
-### Declaração de Variáveis
+### Comentários
+
+Comentários são partes do código-fonte que são ignoradas pelo interpretador da linguagem. Dessa forma os comentários são geralmente utilizados para documentar o código explicando o que ele faz, o motivo de determinadas decisões, ou qualquer outra informação relevante para quem precisar ler e entender o código no futuro.
+
+A linguagem JavaScript possui dois tipos de comentários:
+
+1. **Comentários de Linha Única**: São comentários que ocupam apenas uma linha do código e são iniciados com `//`. Tudo que vem após `//` na mesma linha é considerado um comentário e é ignorado pelo interpretador.
+
+```javascript
+// Este é um comentário de linha única
+console.log('Olá Mundo!'); // O código no início da linha é executado, porém tudo que vier depois do // é ignorado
+```
+
+2. **Comentários de Múltiplas Linhas**: São comentários que podem ocupar várias linhas do código e são iniciados com `/*` e finalizados com `*/`. Tudo que estiver entre `/*` e `*/` é considerado um comentário e é ignorado pelo interpretador.
+
+```javascript
+console.log('Essa mensagem é exibida!');
+/*
+Este é um comentário de múltiplas linhas
+Tudo que está entre os delimitadores é ignorado pelo interpretador
+*/
+console.log('Essa mensagem também é exibida!');
+```
+
+* [Documentação sobre Comentários](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Lexical_grammar#coment%C3%A1rios)
+
+### Ponto e Vírgula
+
+O ponto e vírgula é utilizado para separar instruções em JavaScript, e geralmente é utilizado no final de cada linha de código. Utilizar o ponto e vírgula no final de cada linha é uma boa prática da linguagem, porém, seu uso não é obrigatório, pois o interpretador da linguagem JavaScript é capaz de inferir o final de uma instrução mesmo sem o uso do ponto e vírgula. Entretanto, existem casos em que a ausência do ponto e vírgula pode gerar erros de interpretação, além de dificultar o entendimento do código, por isso seu uso é recomendado e visto como uma boa prática.
+
+```javascript
+let idade = 30 // Instrução sem ponto e vírgula
+let nome = 'João'; // Instrução com ponto e vírgula
+```
+
+* [Documentação sobre Ponto e Vírgula](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Lexical_grammar#inser%C3%A7%C3%A3o_autom%C3%A1tica_de_ponto_e_v%C3%ADrgula)
+
+### Letras Maiúsculas e Minúsculas
+
+JavaScript é uma linguagem case-sensitive, ou seja, ela faz distinção entre letras maiúsculas e minúsculas. Isso quer dizer que `nome`, `Nome` e `NOME` são considerados identificadores diferentes em JavaScript. Por conta disso, é importante manter a consistência na escrita do código, utilizando sempre o mesmo padrão de escrita para os identificadores.
+
+```javascript
+let nome = 'João'; // Variável nome
+let Nome = 'Maria'; // Variável Nome
+let NOME = 'José'; // Variável NOME
+```
+Apesar de não existir uma regra para a escolha do padrão de escrita, a maioria dos programadores que utilizam a linguagem JavaScript adotam o padrão camelCase para nomear variáveis e funções. No padrão camelCase, a primeira palavra é escrita com letra minúscula, e as palavras seguintes são escritas com a primeira letra em maiúscula, sem espaços ou caracteres especiais entre as palavras.
+
+```javascript
+let nomeCompleto = 'João Silva'; // Variável nomeCompleto
+function exibirMensagem() { // Função exibirMensagem
+    ...
+}
+```
+
+Os programados de JavaScript também fazem uso do padrão PascalCase para nomear classes (veremos mais adiante o que são classes). No padrão PascalCase, todas as palavras são escritas com a primeira letra em maiúscula, sem espaços ou caracteres especiais entre as palavras.
+
+```javascript
+class Usuario { // Classe Usuario
+    ...
+}
+```
+
+* [Documentação sobre Convenções de Estilo (em Inglês)](https://www.w3schools.com/js/js_conventions.asp)
+
+### Indentação
+
+Indentação é a prática de adicionar espaços ou tabulações no início de uma linha de código para tornar o código mais legível. A indentação é utilizada para organizar o código, facilitando a leitura e entendimento do código, além de destacar a estrutura do código, como blocos de código, funções, estruturas de controle, etc. Algumas linguagens, como Python, utilizam a tabulação para definir blocos de código, enquanto outras, como JavaScript, utilizam a tabulação apenas para fins de organização e legibilidade, ou seja, escrever um código sem indentação não irá gerar um erro na linguagem, porém, irá tornar seu código mais díficil de ler e entender.
+
+Convencionou-se que cada novo bloco de código deve ser indentado com um número fixo de espaços ou tabulações, geralmente 2 ou 4 espaços. A escolha do número de espaços é uma questão de preferência pessoal, ou da equipe de desenvolvimento, porém, é importante manter a consistência na escrita do código, utilizando sempre o mesmo número de espaços para indentar o código. A maioria dos editores de código modernos possuem funcionalidades que facilitam a indentação do código, identando automaticamente o código à medida que você escreve. Além disso existem ferramentas, como o utilitário [Prettier](https://prettier.io/), que são capazes de formatar o código automaticamente, seguindo um padrão de indentação pré-definido.
+
+```javascript
+if (condicao) {
+    // Bloco de código indentado com 4 espaços
+    console.log('Primeira Mensagem');
+    if (outraCondicao) {
+        // Bloco de código indentado com 4 espaços
+        console.log('Segunda Mensagem');
+    }
+}
+```
+
+### Palavras-Chave
+
+As palavras-chave são termos reservados da linguagem JavaScript que possuem um significado específico e não podem ser utilizados como nomes de variáveis, funções ou qualquer outro identificador da linguagem, são exemplos de palavras-chave `var`, `let` e `const` que utilizamos para declarar variáveis.
+
+Você pode encontrar uma lista completa de palavras-chave da linguagem JavaScript no site da [Mozilla Developer Network](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Lexical_grammar#palavras-chave).
+
+## Declaração de Variáveis
 
 Como vimos na aula anterior, as variáveis são utilizadas para identificar e referenciar dados armazenados na memória do computador, quando declaramos uma variável estamos dando um nome para um determinado espaço na memória do computador, podemos então usar esse nome para armazenar ou ler informações da memória.
 
@@ -67,13 +155,9 @@ nome = 30; // Agora a variável nome armazena um número
 
 Apesar de ser possível, alterar o tipo de dado de uma variável pode tornar o seu código confuso e mais propenso a erros, por isso é recomendado que você mantenha o tipo de dado armazenado em uma variável sempre o mesmo.
 
-### Palavras-Chave
+* [Mais Informações sobre Variáveis](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/First_steps/Variables)
 
-As palavras-chave são termos reservados da linguagem JavaScript que possuem um significado específico e não podem ser utilizados como nomes de variáveis, funções ou qualquer outro identificador da linguagem, são exemplos de palavras-chave `var`, `let` e `const` que utilizamos para declarar variáveis.
-
-Você pode encontrar uma lista completa de palavras-chave da linguagem JavaScript no site da [Mozilla Developer Network](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Lexical_grammar#palavras-chave).
-
-### Operadores
+## Operadores
 
 Operadores são símbolos que representam diferentes tipos de operações que podem ser realizadas em JavaScript, como operações matemáticas, lógicas e de comparação. Os operadores são classificados de acordo com o número de operandos que eles recebem:
 
@@ -85,7 +169,7 @@ Operadores são símbolos que representam diferentes tipos de operações que po
 
 A seguir, apresentamos os principais operadores da linguagem JavaScript, por categoria:
 
-#### Operadores Aritméticos
+### Operadores Aritméticos
 
 | Operador | Exemplo | Nome | Descrição |
 |----------|---------|-----------|-----------|
@@ -97,7 +181,7 @@ A seguir, apresentamos os principais operadores da linguagem JavaScript, por cat
 | `++` | `x++` | Incremento | Incrementa o valor de uma variável em 1 |
 | `--` | `x--` | Decremento | Decrementa o valor de uma variável em 1 |
 
-#### Operadores Lógicos
+### Operadores Lógicos
 
 | Operador | Exemplo | Nome | Descrição |
 |----------|---------|-----------|-----------|
@@ -105,7 +189,7 @@ A seguir, apresentamos os principais operadores da linguagem JavaScript, por cat
 | `\|\|` | `true \|\| false` | OU | Retorna `true` se pelo menos um dos operandos for verdadeiro |
 | `!` | `!true` | Negação | Inverte o valor de uma expressão lógica |
 
-#### Operadores de Comparação
+### Operadores de Comparação
 
 | Operador | Exemplo | Nome | Descrição |
 |----------|---------|-----------|-----------|
@@ -129,7 +213,7 @@ A seguir, apresentamos os principais operadores da linguagem JavaScript, por cat
 ```
 *Para evitar erros de comparação, é recomendável utilizar os operadores de igualdade e diferença estrita (`===` e `!==`) sempre que possível.*
 
-#### Operadores de Atribuição
+### Operadores de Atribuição
 
 | Operador | Exemplo | Nome | Descrição |
 |----------|---------|-----------|-----------|
@@ -140,7 +224,7 @@ A seguir, apresentamos os principais operadores da linguagem JavaScript, por cat
 | `/=` | `x /= 5` | Atribuição com Divisão | Divide uma variável por um valor |
 | `%=` | `x %= 5` | Atribuição com Resto da Divisão | Atribui o resto da divisão de uma variável por um valor |
 
-#### Operador de Concatenação
+### Operador de Concatenação
 
 O operador `+`, além de ser utilizado para realizar operações matemáticas de adição, também é utilizado para concatenar strings em JavaScript. Quando utilizamos o operador `+` para concatenar strings, ele irá unir os valores das strings em uma única string.
 
@@ -156,15 +240,15 @@ let numero = 2;
 let resultado = numero + '5'; // '25'
 ```
 
-#### Outros Operadores e Precedência de Operadores
+### Outros Operadores e Precedência de Operadores
 
 A linguagem JavaScript possui diversos outros operadores que são utilizados para realizar diferentes tipos de operações. Além disso a linguagem possui regras de precedência que determinam a ordem em que os operadores são avaliados em uma expressão. Você pode encontrar uma lista completa de operadores e a ordem de precedência deles no site da [Mozilla Developer Network](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Expressions_and_operators).
 
-### Estruturas de Controle
+## Estruturas de Controle
 
 As estruturas de controle são utilizadas para controlar o fluxo de execução de um programa, permitindo que você tome decisões com base em condições específicas. Quando escrevemos um algoritmo ele é executado de forma linear, uma linha após a outra, porém, em muitos casos precisamos que o programa tome decisões com base em determinadas condições. Para isso utilizamos as estruturas de controle que permitem que você determine quais partes do seu código devem ou não ser executadas.
 
-#### Estrutura de Controle if (se)
+### Estrutura de Controle if (se)
 
 A estrutura de controle `if` é utilizada para executar um bloco de código **se** uma determinada condição for verdadeira. A sintaxe da estrutura de controle `if` é a seguinte:
 
@@ -300,7 +384,7 @@ if (idade >= 18) {
 
 Nesse exemplo, a variável idade armazena o valor 21 e a variável possuiCNH armazena o valor `true`. A primeira condição `idade >= 18` verifica se a idade é maior ou igual a 18, se essa condição for verdadeira, a estrutura de controle `if` aninhada é executada. Dentro dessa estrutura de controle aninhada, a condição `possuiCNH` verifica se a pessoa possui CNH, se essa condição for verdadeira, o bloco de código dentro das chaves `{}` é executado, exibindo a mensagem `'Você pode dirigir'` no console. Se a condição `possuiCNH` for falsa, o bloco de código dentro das chaves `{}` do `else` é executado, exibindo a mensagem `'Você não pode dirigir'` no console. Se a condição `idade >= 18` for falsa, o bloco de código dentro das chaves `{}` do `else` é executado, exibindo a mensagem `'Você é menor de idade'` no console.
 
-### Funções
+## Funções
 
 Imagine que você está desenvolvendo um programa que precisa calcular a média das 4 notas bimestrais de um aluno. Você provavelmente desenvolveria algo parecido com o código abaixo:
 
@@ -375,7 +459,9 @@ function exibirMensagem(nome) {
 exibirMensagem(); // Exibe 'Olá, undefined!' no console
 ```
 
-#### Escopo da Função
+* [Documentação sobre Funções](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Functions)
+
+### Escopo da Função
 
 Quando declaramos uma função, os parâmetros dessa função e as variáveis declaradas no corpo da função somente são acessíveis dentro do corpo dessa função, ou seja, elas possuem escopo local. Escopo é o contexto onde uma variável ou função é acessível. Se tentarmos acessar uma variável declarada dentro de uma função fora do corpo da função, o JavaScript irá retornar um erro, pois essa variável não é acessível fora do escopo da função.
 
@@ -391,7 +477,9 @@ console.log(mensagem); // Erro: ReferenceError: mensagem is not defined
 
 Nesse exemplo, a variável `mensagem` é declarada dentro da função `exibirMensagem`, e por isso ela só é acessível dentro do corpo da função. Quando tentamos acessar a variável `mensagem` fora do corpo da função, o JavaScript retorna um erro, pois essa variável não é acessível fora do escopo da função.
 
-#### Escopo Global
+* [Documentação sobre Escopo](https://developer.mozilla.org/pt-BR/docs/Glossary/Scope)
+
+### Escopo Global
 
 Por outro lado, variáveis declaradas fora do corpo das funções são acessíveis em qualquer parte do código, ou seja, elas possuem escopo global e podem ser utilizadas tanto dentro quanto fora das funções. Variáveis declaradas fora do corpo das funções são chamadas de variáveis globais.
 
