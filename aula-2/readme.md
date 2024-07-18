@@ -492,3 +492,39 @@ function exibirMensagem() {
 exibirMensagem(); // Exibe 'Olá, mundo!' no console
 console.log(mensagem); // Exibe 'Olá, mundo!' no console
 ```
+
+## Desafios
+
+1. Crie uma função chamada `obterMaior` que recebe 2 números como parâmetros e retorna o maior deles. Utilize essa função para encontrar o maior número entre 4 e 7.
+
+2. Crie uma função chamada `mostrarOrdemCrescente` que recebe 3 números como parâmetros e exibe esses números em ordem crescente. Utilize essa função para exibir os números 5, 3 e 7 em ordem crescente.
+
+3. Crie uma função chamada `cumprimentar` que recebe um nome como parâmetro e exibe a mensagem `'Olá, [nome]!'`. Caso o nome não seja informado a função deve exibir a mensagem `'Você não me disse o seu nome!'`. Chame essa função passando o nome `'João'` como parâmetro e sem passar nenhum nome como parâmetro.
+
+4. Crie uma função chamada `nomeCompleto` que recebe 2 parâmetros, `nome` e `sobrenome`, e retorna o nome completo. Utilize essa função oara obter o nome completo de `'José'` e `'Souza'`.
+
+5. Crie uma função chamada `verificarEstoque` que recebe 3 parâmetros, `quantidade`, `baixo` e `crítico`, e retorna `'Estoque normal'` se a quantidade for maior que o valor de `baixo`, `'Estoque baixo'` se a quantidade for menor ou igual ao valor de `baixo` e maior que o valor de `crítico`, e `'Estoque crítico'` se a quantidade for menor ou igual ao valor de `crítico`. Utilize essa função para verificar o estoque de 100 unidades, com valor baixo de 50 unidades e valor crítico de 20 unidades.
+
+## Desafio Extra
+
+Você sabia que alguns tipos na linguagem JavaScript possuem suas próprias funções (chamadas de métodos)? Por exemplo, o tipo de dados `string` possui métodos que permitem manipular ou obter informações sobre strings. Um desses métodos é o método `toUpperCase`, que retorna a string em que ele foi chamado convertida para letras maiúsculas. Por exemplo, o código abaixo exibe a string `'OLÁ, MUNDO!'` no console:
+
+```javascript
+let mensagem = 'Olá, mundo!';
+let mensagemMaiuscula = mensagem.toUpperCase();
+console.log(mensagemMaiuscula); // 'OLÁ, MUNDO!'
+```
+
+Você pode encontrar uma lista completa de métodos disponíveis para o tipo `string` no site da [Mozilla Developer Network](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String) na lista `Métodos de Instância`. Clicando sobre o nome do método você consegue ver uma descrição detalhada do método, exemplos de uso e a compatibilidade com os diferentes navegadores.
+
+Nesse desafio você deve desenvolver uma função chamada `abreviarNome` que recebe 2 parâmetros, `nome` e `sobrenome`, e retorna as iniciais do nome e do sobrenome em letras maiúsculas. Exemplo:
+
+```javascript
+let joseSouza = abreviarNome('josé', 'souza');
+console.log(joseSouza); // Deve exibir 'J.S.'
+
+let mariaSilva = abreviarNome('maria', 'silva');
+console.log(mariaSilva); // Deve exibir 'M.S.'
+```
+
+Para concluir esse desafio você vai precisar utilizar o método `toUpperCase` que exemplificamos acima, além de algum outro método que lhe permita obter o primeiro caractere de cada `string`. Existem diversos métodos que podem lhe ajudar nessa tarefa, pesquise na documentação da Mozilla Developer Network para encontrar o método que achar mais adequado.
