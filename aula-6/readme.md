@@ -41,6 +41,24 @@ console.log(fila.shift()); // B
 console.log(fila.shift()); // C
 ```
 
+**Ordem de Inserção:**
+
+```mermaid
+graph LR
+    A --> B
+    B --> C
+    C --> D
+```
+
+**Ordem de Remoção:**
+
+```mermaid
+graph LR
+    A --> B
+    B --> C
+    C --> D
+```
+
 ### Pilhas
 
 Uma pilha é uma estrutura de dados que segue o princípio LIFO (Last In, First Out), ou seja, o último elemento a ser inserido será o primeiro a ser removido. Ou seja, os elementos são removidos na ordem inversa em que são inseridos na pilha.
@@ -59,6 +77,24 @@ pilha.push('C');
 console.log(pilha.pop()); // C
 console.log(pilha.pop()); // B
 console.log(pilha.pop()); // A
+```
+
+**Ordem de Inserção:**
+
+```mermaid
+graph LR
+    A --> B
+    B --> C
+    C --> D
+```
+
+**Ordem de Remoção:**
+
+```mermaid
+graph LR
+    D --> C
+    C --> B
+    B --> A
 ```
 
 ### Problemas com Pilhas e Filas
@@ -304,3 +340,4 @@ function saoAnagramas(palavra1, palavra2) {
   return true;
 }
 ```
+
