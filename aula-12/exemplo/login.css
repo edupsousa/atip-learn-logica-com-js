@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+#navbar h1 {
+  margin: 0;
+}
+
+#action button {
+  background-color: #fff;
+  color: #333;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#tela-login {
+  margin: 20px auto;
+  width: 300px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#tela-login h1 {
+  margin: 0;
+  text-align: center;
+}
+
+#form-login {
+  margin-top: 20px;
+}
+
+#form-login label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#form-login input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+#form-login button {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#tela-bemvindo {
+  margin: 20px auto;
+  width: 50%;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#tela-bemvindo h1 {
+  margin: 0;
+  text-align: center;
+}
